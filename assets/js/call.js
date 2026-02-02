@@ -5,7 +5,7 @@ let pc;
 let audioEl = document.createElement("audio");
 audioEl.autoplay = true;
 
-function startCall(agentId, beginConvoLabel, endConvoLabel) {
+export function startCall(agentId, beginConvoLabel, endConvoLabel) {
 
     if (activeCall === null) {
         console.log("NO active call, gonna start it");
@@ -35,7 +35,7 @@ function startCall(agentId, beginConvoLabel, endConvoLabel) {
     }
 }
 
-function conversationEnded(beginConvoLabel) {
+export function conversationEnded(beginConvoLabel) {
     if (activeCall != null) {
         console.log("there is an active call, gonna stop it");
         activeCall.stop();
@@ -55,3 +55,5 @@ function endCall() {
         pc = null;
     }
 }
+
+window.startCall = startCall;
